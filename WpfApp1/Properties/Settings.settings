@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="constr" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\source\repos\WpfApp1\WpfApp1\Data\dblocal.mdf;Integrated Security=True</Value>
+      <Value Profile="(Default)">Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Admin\source\repos\WpfApp1\WpfApp1\Data\dblocal.mdf;Integrated Security=True\WpfApp1\WpfApp1\Data\dblocal.mdf;Integrated Security=True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -26,7 +26,8 @@ namespace WpfApp1.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Admin\\source\\repos\\W" +
-            "pfApp1\\WpfApp1\\Data\\dblocal.mdf;Integrated Security=True")]
+            "pfApp1\\WpfApp1\\Data\\dblocal.mdf;Integrated Security=True\\WpfApp1\\WpfApp1\\Data\\db" +
+            "local.mdf;Integrated Security=True")]
         public string constr {
             get {
                 return ((string)(this["constr"]));
