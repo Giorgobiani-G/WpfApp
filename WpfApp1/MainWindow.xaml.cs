@@ -110,8 +110,9 @@ namespace WpfApp1
 
 
 
-
-
+            string myconstring = Properties.Settings.Default.constr;
+            SqlConnection sqlConnection = new SqlConnection(myconstring);
+            sqlConnection.Open();
 
             //Inserting data into database via method we greared
             bool success = contact.Insert(contact);
@@ -158,6 +159,10 @@ namespace WpfApp1
             contact.Address = txtboxAddress.Text;
             contact.Gender = txtboxGender.SelectionBoxItem.ToString();
 
+            string myconstring = Properties.Settings.Default.constr;
+            SqlConnection sqlConnection = new SqlConnection(myconstring);
+            sqlConnection.Open();
+
 
             bool success = contact.Update(contact);
             if (success == true)
@@ -195,10 +200,12 @@ namespace WpfApp1
         //Delete data from database
         private void Deletebutton_Click(object sender, RoutedEventArgs e)
         {
-           
-            
+            string myconstring = Properties.Settings.Default.constr;
+            SqlConnection sqlConnection = new SqlConnection(myconstring);
+            sqlConnection.Open();
 
-             
+
+
             contact.ContactId = int.Parse(txtboxcontactid.Text);
             bool success = contact.Delete(contact);
             if (success == true)
@@ -218,14 +225,21 @@ namespace WpfApp1
 
         //make searchox usable
 
-        string myconstring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+        string myconstring = Properties.Settings.Default.constr;
 
         private void Searchbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string keyword = searchbox.Text;
+            string myconstring = Properties.Settings.Default.constr;
             SqlConnection sqlConnection = new SqlConnection(myconstring);
+            
+
+
+            string keyword = searchbox.Text;
+            
+
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("Select * from Wpf_Contacts where FirstName Like + '%"+keyword+ "%' or LastName Like + '%" + keyword + "%' or ContactNo Like + '%" + keyword + "%' or Address Like + '%" + keyword + "%' or Gender Like + '%" + keyword + "%' ", sqlConnection);
             DataTable dt = new DataTable();
+            sqlConnection.Open();
             sqlDataAdapter.Fill(dt);
             txtboxdtgrid.ItemsSource = dt.DefaultView;
         }
