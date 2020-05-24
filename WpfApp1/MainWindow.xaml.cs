@@ -45,7 +45,7 @@ namespace WpfApp1
         {
             //1.Connect to database
 
-            string myconstring = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            string myconstring = Properties.Settings.Default.constr;
             
             SqlConnection sqlConnection = new SqlConnection(myconstring);
 
